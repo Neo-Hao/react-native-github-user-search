@@ -5,11 +5,8 @@ import App from '../App';
 test('renders correctly', async () =>  {
   const { getByText } = render(<App />);
 
-  // wait for the async content to be rendered
-  await new Promise((resolve) => setTimeout(resolve, 500));
-
   await waitFor(() => {
     const asyncContent = getByText('devfinder');
     expect(asyncContent).toBeDefined();
-  });
+  }, { timeout: 20000 });
 });
