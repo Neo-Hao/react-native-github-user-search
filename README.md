@@ -1,6 +1,6 @@
 # Design, develop, and test an app from scratch in React Native
 
-![badge](https://github.com/Neo-Hao/react-native-to-do-app-with-tests/actions/workflows/ci.yml/badge.svg)
+![badge](https://github.com/Neo-Hao/react-native-github-user-search/actions/workflows/ci.yml/badge.svg)
 
 This app searches for and displays GitHub user information. Thi app aims to teach all three aspects, development, design and testing, in React Native. This project is inspired by [this Frontend Mentor project](https://www.frontendmentor.io/challenges/github-user-search-app-Q09YOgaH6). This application was adapted and improved based on what ChatGPT generated. The prompts that were used to solicit the rough code base from ChatGPT include:
 
