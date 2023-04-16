@@ -1,5 +1,8 @@
 ### Dark
 
+Font: SpaceMono-Regular
+Font Bold: SpaceMono-Bold
+
 Background: #141d2f
 Background Secondary: #1e2a47
 
@@ -13,6 +16,9 @@ Theme switch button hover: #90a4d4
 Error: #f74646
 
 ### Light
+
+Font: SpaceMono-Regular
+Font Bold: SpaceMono-Bold
 
 Background: #f6f8ff
 Background Secondary: #fefefe
