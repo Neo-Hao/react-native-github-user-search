@@ -1,23 +1,29 @@
 import { Text } from 'react-native';
 
-const MyText = (props) => {
+const MyText = ({ style, children, ...rest }) => {
   return (
     <Text
-      {...props}
-      style={[{ fontFamily: 'SpaceMono-Regular', color: '#fff' }, props.style]}
+      {...rest}
+      style={[
+        { fontFamily: 'SpaceMono-Regular', color: '#fff', fontSize: 16 },
+        style,
+      ]}
     >
-      {props.children}
+      {children}
     </Text>
   );
 };
 
-const MyTextBold = (props) => {
+const MyTextBold = ({ style, children, ...rest }) => {
   return (
     <Text
-      {...props}
-      style={[{ fontFamily: 'SpaceMono-Bold', color: '#fff' }, props.style]}
+      {...rest}
+      style={[
+        { fontFamily: 'SpaceMono-Bold', color: '#fff', fontSize: 16 },
+        style,
+      ]}
     >
-      {props.children}
+      {children}
     </Text>
   );
 };

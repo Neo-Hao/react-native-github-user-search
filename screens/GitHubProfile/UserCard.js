@@ -132,7 +132,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   username: {
-    fontSize: 16,
     color: '#0079ff',
   },
   bioRow: {

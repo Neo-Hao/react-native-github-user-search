@@ -1,13 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
-import {
-  View,
-  Text,
-  Pressable,
-  StyleSheet,
-  TextInput,
-  Image,
-} from 'react-native';
+import { View, Pressable, StyleSheet, TextInput, Image } from 'react-native';
+import { MyText } from '../../components/MyText';
 
 const InputArea = ({ setUser, setError }) => {
   const [username, setUsername] = useState('');
@@ -57,9 +51,9 @@ const InputArea = ({ setUser, setError }) => {
         style={styles.button}
         onPress={handleSubmit}
         disabled={!username || loading}
-        testID="searchButton"
+        testID='searchButton'
       >
-        <Text style={styles.buttonText}>Search</Text>
+        <MyText>Search</MyText>
       </Pressable>
     </View>
   );
@@ -88,11 +82,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  buttonText: {
-    fontFamily: 'SpaceMono-Regular',
-    color: '#fff',
-    fontSize: 16,
   },
 });
 
