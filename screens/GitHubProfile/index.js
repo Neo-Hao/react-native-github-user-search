@@ -11,11 +11,19 @@ const GitHubProfile = () => {
   // one state that stores the error message
   const [error, setError] = useState(null);
 
+  // one state that stores the loading status
+  const [loading, setLoading] = useState(false);
+
   return (
     <>
       <Header />
-      <InputArea setUser={setUser} setError={setError} />
-      <UserCard user={user} error={error} />
+      <InputArea
+        setUser={setUser}
+        setError={setError}
+        setLoading={setLoading}
+        loading={loading}
+      />
+      <UserCard user={user} error={error} loading={loading} />
     </>
   );
 };
