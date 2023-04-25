@@ -3,9 +3,8 @@ import axios from 'axios';
 import { View, Pressable, StyleSheet, TextInput, Image } from 'react-native';
 import { MyText } from '../../components/MyText';
 
-const InputArea = ({ setUser, setError }) => {
+const InputArea = ({ setUser, setError, setLoading }) => {
   const [username, setUsername] = useState('');
-  const [loading, setLoading] = useState(false);
 
   const searchUser = async (username) => {
     setLoading(true);
