@@ -1,19 +1,18 @@
-import { View as DefaultView } from "react-native";
-import { SafeAreaView as DefaultSafeAreaView } from "react-native-safe-area-context";
+import { View as DefaultView } from 'react-native';
+import { SafeAreaView as DefaultSafeAreaView } from 'react-native-safe-area-context';
 
-import { useThemeColors } from "hooks/useThemeColors";
+import { useThemeColors } from 'hooks/useThemeColors';
 
-export const View = (props) => {
-  const { style, ...otherProps } = props;
+export const View = ({ style, ...rest }) => {
   const { colors } = useThemeColors();
 
   return (
     <DefaultView
       style={[{ backgroundColor: colors.background }, style]}
-      {...otherProps}
+      {...rest}
     />
   );
-}
+};
 
 export const SafeAreaView = (props) => {
   const { style, ...otherProps } = props;

@@ -1,12 +1,12 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { createContext, useContext, useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { useColorScheme } from "hooks/useColorScheme";
+import { useColorScheme } from 'hooks/useColorScheme';
 
-export const Themes = ["light", "dark"];
+export const Themes = ['light', 'dark'];
 
 const ThemeContext = createContext({
-  theme: "light",
+  theme: 'light',
   setTheme: () => {},
   loading: true,
 });
@@ -17,7 +17,7 @@ export const ThemeProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    AsyncStorage.getItem("@user_preferred_theme")
+    AsyncStorage.getItem('@user_preferred_theme')
       .then((storedTheme) => {
         if (storedTheme) {
           setTheme(storedTheme);
@@ -27,7 +27,7 @@ export const ThemeProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    AsyncStorage.setItem("@user_preferred_theme", theme);
+    AsyncStorage.setItem('@user_preferred_theme', theme);
   }, [theme]);
 
   return (
@@ -42,7 +42,7 @@ export const useCustomTheme = () => {
 
   let isDark = false;
 
-  if (context.theme === "dark") {
+  if (context.theme === 'dark') {
     isDark = true;
   }
 
