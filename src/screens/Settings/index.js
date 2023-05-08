@@ -2,7 +2,8 @@ import { Fragment } from 'react';
 import { StyleSheet, Pressable } from 'react-native';
 import { View, Text } from 'components/themed';
 import { useThemeColors } from 'hooks/useThemeColors';
-import { useCustomTheme, Themes } from 'context/Theme';
+import { Themes } from 'context/Theme';
+import { useCustomTheme } from 'hooks/useCustomTheme';
 import Header from './Header';
 import Layout from 'layouts/Main';
 

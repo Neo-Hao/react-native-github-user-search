@@ -1,14 +1,11 @@
 import Colors from 'constants/Colors';
-import { useCustomTheme } from 'context/Theme';
+import { useCustomTheme } from './useCustomTheme';
 
-export function useThemeColors() {
+export const useThemeColors = () => {
   const customTheme = useCustomTheme();
-
-  const activeTheme = customTheme.theme;
 
   return {
     theme: customTheme.theme,
-    isDark: customTheme.isDark || activeTheme === 'dark',
-    colors: Colors[activeTheme],
+    colors: Colors[customTheme.theme],
   };
 }

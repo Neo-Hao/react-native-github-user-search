@@ -4,14 +4,14 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
 import BottomTabs from 'navigation/BottomTabs';
 import { useThemeColors } from 'hooks/useThemeColors';
-import { useCustomTheme } from 'context/Theme';
+import { useCustomTheme } from 'hooks/useCustomTheme';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
 
 const RootNavigation = () => {
   const { colors } = useThemeColors();
-  const theme = useCustomTheme();
+  const { theme } = useCustomTheme();
 
   const [fontsLoaded] = useFonts({
     'SpaceMono-Regular': require('../../assets/fonts/SpaceMono-Regular.ttf'),
