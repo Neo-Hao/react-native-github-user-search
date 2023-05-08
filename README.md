@@ -9,11 +9,11 @@ This app searches for and displays GitHub user information. Thi app aims to teac
 
 This application will render to iOS as follows:
 
-<img src="./design/ios.png" width="300" />
+<img src="./design/ios-updated.png" width="300" />
 
 This application will render to Android as follows:
 
-<img src="./design/android.png" width="300" />
+<img src="./design/android-updated.png" width="300" />
 
 This appliation is a teaching and learning demo developed by [Qiang Hao](https://qhao.info/) for CSCI 412 Mobile Development at Western Washington University.
 

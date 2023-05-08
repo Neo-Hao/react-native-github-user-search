@@ -1,22 +1,26 @@
 import { View, StyleSheet, Image } from 'react-native';
-import { MyText, MyTextBold } from '../../components/MyText';
-import NotFound from '../../components/NotFound';
-import Twitter from '../../components/Twitter';
-import Company from '../../components/Company';
-import Location from '../../components/Location';
-import Website from '../../components/Website';
+import { useThemeColors } from 'hooks/useThemeColors';
+import { Text, TextBold } from 'components/themed';
+import NotFound from 'components/svgr/NotFound';
+import Twitter from 'components/svgr/Twitter';
+import Company from 'components/svgr/Company';
+import Location from 'components/svgr/Location';
+import Website from 'components/svgr/Website';
 
 const UserCard = ({ user, error, loading }) => {
+  const { colors } = useThemeColors();
+
   if (loading)
     return (
       <View
         style={{
           ...styles.card,
+          backgroundColor: colors.backgroundSecondary,
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
-        <MyText>Searching ...</MyText>
+        <Text>Searching ...</Text>
       </View>
     );
 
@@ -25,83 +29,80 @@ const UserCard = ({ user, error, loading }) => {
       <View
         style={{
           ...styles.card,
+          backgroundColor: colors.backgroundSecondary,
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
         <NotFound />
-        <MyText>There's no such a profile</MyText>
-        <MyText>Or something else is wrong</MyText>
+        <Text>There's no such a profile</Text>
+        <Text>Or something else is wrong</Text>
       </View>
     );
 
   if (user === null) return null;
 
   return (
-    <View style={styles.card}>
+    <View style={[styles.card, { backgroundColor: colors.backgroundSecondary }]}>
       <View style={styles.cardHeader}>
         <Image source={{ uri: user.avatar_url }} style={styles.avatar} />
         <View style={styles.generalInfo}>
-          <MyText style={styles.name}>{user.name}</MyText>
-          <MyText style={styles.username}>@{user.login}</MyText>
-          <MyText style={styles.date}>{user.created_at}</MyText>
+          <Text style={styles.name}>{user.name}</Text>
+          <Text style={styles.username}>@{user.login}</Text>
+          <Text style={styles.date}>{user.created_at}</Text>
         </View>
       </View>
       <View style={styles.bioRow}>
-        <MyText>
-          {user.bio !== null ? user.bio : 'This profile has no bio'}
-        </MyText>
+        <Text>{user.bio !== null ? user.bio : 'This profile has no bio'}</Text>
       </View>
-      <View style={styles.statusRow}>
+      <View style={[styles.statusRow, { backgroundColor: colors.background }]}>
         <View style={styles.statusLables}>
           <View>
-            <MyText>Repos</MyText>
-            <MyTextBold style={styles.statusData}>
-              {user.public_repos}
-            </MyTextBold>
+            <Text>Repos</Text>
+            <TextBold style={styles.statusData}>{user.public_repos}</TextBold>
           </View>
           <View>
-            <MyText>Followers</MyText>
-            <MyTextBold style={styles.statusData}>{user.followers}</MyTextBold>
+            <Text>Followers</Text>
+            <TextBold style={styles.statusData}>{user.followers}</TextBold>
           </View>
           <View>
-            <MyText>Following</MyText>
-            <MyTextBold style={styles.statusData}>{user.following}</MyTextBold>
+            <Text>Following</Text>
+            <TextBold style={styles.statusData}>{user.following}</TextBold>
           </View>
         </View>
       </View>
       <View style={styles.social}>
         <View style={styles.socialAccount}>
           <View style={styles.socialIcon}>
-            <Location color={user.location ? 'white' : null} />
+            <Location color={user.location ? colors.text : colors.textLowContrast} />
           </View>
-          <MyText style={styles.socialText}>
+          <Text style={styles.socialText}>
             {user.location ? user.location : 'Not available'}
-          </MyText>
+          </Text>
         </View>
         <View style={styles.socialAccount}>
           <View style={styles.socialIcon}>
-            <Twitter color={user.twitter_username ? 'white' : null} />
+            <Twitter color={user.twitter_username ? colors.text : colors.textLowContrast} />
           </View>
-          <MyText style={styles.socialText}>
+          <Text style={styles.socialText}>
             {user.twitter_username ? user.twitter_username : 'Not available'}
-          </MyText>
+          </Text>
         </View>
         <View style={styles.socialAccount}>
           <View style={styles.socialIcon}>
-            <Website color={user.blog ? 'white' : null} />
+            <Website color={user.blog ? colors.text : colors.textLowContrast} />
           </View>
-          <MyText style={styles.socialText}>
+          <Text style={styles.socialText}>
             {user.blog ? user.blog : 'Not available'}
-          </MyText>
+          </Text>
         </View>
         <View style={styles.socialAccount}>
           <View style={styles.socialIcon}>
-            <Company color={user.company ? 'white' : null} />
+            <Company color={user.company ? colors.text : colors.textLowContrast} />
           </View>
-          <MyText style={styles.socialText}>
+          <Text style={styles.socialText}>
             {user.company ? user.company : 'Not available'}
-          </MyText>
+          </Text>
         </View>
       </View>
     </View>
@@ -110,8 +111,6 @@ const UserCard = ({ user, error, loading }) => {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#1e2a47',
-    borderColor: '#1e2a47',
     borderRadius: 10,
     padding: 20,
     marginTop: 20,
@@ -141,7 +140,6 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   statusRow: {
-    backgroundColor: '#141d2f',
     borderRadius: 10,
     padding: 30,
   },

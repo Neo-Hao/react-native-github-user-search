@@ -1,10 +1,10 @@
 import { View, StyleSheet } from 'react-native';
-import { MyTextBold } from '../../components/MyText';
+import { TextBold } from 'components/themed';
 
 const Header = () => {
   return (
     <View style={styles.header}>
-      <MyTextBold style={styles.title}>devfinder</MyTextBold>
+      <TextBold style={styles.title}>devfinder</TextBold>
     </View>
   );
 };
@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     lineHeight: 30,
-    color: '#fff',
   },
 });
 
