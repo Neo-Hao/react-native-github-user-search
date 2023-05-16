@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { View, Pressable, StyleSheet, TextInput, Image } from 'react-native';
+import { Pressable, StyleSheet, TextInput, Image } from 'react-native';
 import { useThemeColors } from 'hooks/useThemeColors';
-import { Text } from 'components/themed';
+import { View, Text } from 'components/themed';
 import { white } from 'constants/Colors';
 
 const InputArea = ({ setUser, setError, setLoading, loading }) => {

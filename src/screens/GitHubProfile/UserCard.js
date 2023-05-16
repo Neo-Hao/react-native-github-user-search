@@ -1,6 +1,6 @@
 import { View, StyleSheet, Image } from 'react-native';
 import { useThemeColors } from 'hooks/useThemeColors';
-import { Text, TextBold } from 'components/themed';
+import { ViewContrast, Text, TextBold } from 'components/themed';
 import NotFound from 'components/svgr/NotFound';
 import Twitter from 'components/svgr/Twitter';
 import Company from 'components/svgr/Company';
@@ -12,24 +12,22 @@ const UserCard = ({ user, error, loading }) => {
 
   if (loading)
     return (
-      <View
+      <ViewContrast
         style={{
           ...styles.card,
-          backgroundColor: colors.backgroundSecondary,
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
         <Text>Searching ...</Text>
-      </View>
+      </ViewContrast>
     );
 
   if (error)
     return (
-      <View
+      <ViewContrast
         style={{
           ...styles.card,
-          backgroundColor: colors.backgroundSecondary,
           justifyContent: 'center',
           alignItems: 'center',
         }}
@@ -37,13 +35,13 @@ const UserCard = ({ user, error, loading }) => {
         <NotFound />
         <Text>There's no such a profile</Text>
         <Text>Or something else is wrong</Text>
-      </View>
+      </ViewContrast>
     );
 
   if (user === null) return null;
 
   return (
-    <View style={[styles.card, { backgroundColor: colors.backgroundSecondary }]}>
+    <ViewContrast style={styles.card}>
       <View style={styles.cardHeader}>
         <Image source={{ uri: user.avatar_url }} style={styles.avatar} />
         <View style={styles.generalInfo}>
@@ -105,7 +103,7 @@ const UserCard = ({ user, error, loading }) => {
           </Text>
         </View>
       </View>
-    </View>
+    </ViewContrast>
   );
 };
 

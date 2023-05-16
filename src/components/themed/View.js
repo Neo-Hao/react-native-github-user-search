@@ -1,10 +1,10 @@
 import { View as DefaultView } from 'react-native';
 import { SafeAreaView as DefaultSafeAreaView } from 'react-native-safe-area-context';
 
-import { useThemeColors } from 'hooks/useThemeColors';
+import { useCustomTheme } from 'hooks/useCustomTheme';
 
 export const View = ({ style, ...rest }) => {
-  const { colors } = useThemeColors();
+  const { colors } = useCustomTheme();
 
   return (
     <DefaultView
@@ -14,14 +14,24 @@ export const View = ({ style, ...rest }) => {
   );
 };
 
-export const SafeAreaView = (props) => {
-  const { style, ...otherProps } = props;
-  const { colors } = useThemeColors();
+export const ViewContrast = ({ style, ...rest }) => {
+  const { colors } = useCustomTheme();
+
+  return (
+    <DefaultView
+      style={[{ backgroundColor: colors.backgroundSecondary }, style]}
+      {...rest}
+    />
+  );
+};
+
+export const SafeAreaView = ({ style, ...rest }) => {
+  const { colors } = useCustomTheme();
 
   return (
     <DefaultSafeAreaView
       style={[{ backgroundColor: colors.background }, style]}
-      {...otherProps}
+      {...rest}
     />
   );
 };

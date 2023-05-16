@@ -6,6 +6,7 @@ export const useCustomTheme = () => {
 
   return {
     theme: context.theme,
+    colors: context.colors,
     setTheme: context.setTheme,
     loading: context.loading,
   };

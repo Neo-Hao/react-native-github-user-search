@@ -1,5 +1,5 @@
-import { View, StyleSheet } from 'react-native';
-import { TextBold } from 'components/themed';
+import { StyleSheet } from 'react-native';
+import { View, TextBold } from 'components/themed';
 
 const Header = () => {
   return (

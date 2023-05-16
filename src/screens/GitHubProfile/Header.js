@@ -1,10 +1,12 @@
-import { View, StyleSheet } from 'react-native';
-import { TextBold } from 'components/themed';
+import { StyleSheet } from 'react-native';
+import { View, TextBold } from 'components/themed';
 
 const Header = () => {
   return (
-    <View style={styles.header}>
-      <TextBold style={styles.title}>devfinder</TextBold>
+    <View style={styles.header} testID='test-header'>
+      <TextBold style={styles.title} testID='test-header-text'>
+        devfinder
+      </TextBold>
     </View>
   );
 };
