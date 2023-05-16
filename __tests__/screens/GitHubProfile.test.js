@@ -38,5 +38,16 @@ test('useEffect hook is called properly', async () => {
 test('test background color', () => {
   const { getByTestId } = render(<GitHubProfile />);
   const header = getByTestId('test-header'); 
-  expect(header.props.style[0].backgroundColor).toEqual('#141d2f');
+
+  // if the style is an array, flatten it
+  let styles = {};
+  if (Array.isArray(header.props.style)) {
+    styles = header.props.style.reduce((acc, cur) => {
+      return { ...acc, ...cur };
+    }, {});
+  } else {
+    styles = header.props.style;
+  }
+
+  expect(styles.backgroundColor).toEqual('#141d2f');
 });
