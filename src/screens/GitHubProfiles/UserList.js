@@ -1,0 +1,29 @@
+import { ViewPlain, ViewContrast, Text } from 'components/themed';
+import { Image, StyleSheet } from 'react-native';
+import SwipeToDelete from './SwipeToDelete';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { useUsers } from 'hooks/useUsers';
+
+const UserList = () => {
+  // one state that stores all users
+  const { users, setUsers } = useUsers();
+
+  // delete a user from the list
+  const deleteUser = (index) => {
+    // update the state
+    setUsers((prevUsers) => {
+      const newUsers = prevUsers.filter((_, i) => i !== index);
+      return newUsers;
+    });
+  };
+
+  return (
+    <GestureHandlerRootView style={{ flex: 1, marginBottom: 30 }}>
+      {users.map((user, i) => (
+        <SwipeToDelete user={user} onDelete={() => deleteUser(i)} key={i} />
+      ))}
+    </GestureHandlerRootView>
+  );
+};
+
+export default UserList;

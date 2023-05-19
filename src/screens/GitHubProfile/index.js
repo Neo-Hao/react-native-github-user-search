@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
+import { ScrollView } from 'react-native';
 import axios from 'axios';
 import InputArea from './InputArea';
 import Header from './Header';
 import UserCard from './UserCard';
 import Layout from 'layouts/Main';
+import { useUsers } from 'hooks/useUsers';
 
 const GitHubProfile = () => {
+  const { setUsers } = useUsers();
+
   // one state that stores the user data
-  // the user data comes from the GitHub API
   const [user, setUser] = useState(null);
 
   // one state that stores the error message
@@ -32,16 +35,35 @@ const GitHubProfile = () => {
     loadUser();
   }, []);
 
+  // add a new user
+  const addUser = (user) => {
+    const userObj = {
+      name: user.name,
+      login: user.login,
+      avatar_url: user.avatar_url,
+    };
+
+    setUsers((prevUsers) => {
+      if (prevUsers.some((u) => u.login === user.login)) {
+        return prevUsers;
+      } else {
+        return [...prevUsers, userObj];
+      }
+    });
+  };
+
   return (
     <Layout>
-      <Header />
-      <InputArea
-        setUser={setUser}
-        setError={setError}
-        setLoading={setLoading}
-        loading={loading}
-      />
-      <UserCard user={user} error={error} loading={loading} />
+      <Header user={user} addUser={addUser} style={{ padding: 20 }} />
+      <ScrollView style={{ padding: 20 }} keyboardShouldPersistTaps='handled'>
+        <InputArea
+          setUser={setUser}
+          setError={setError}
+          setLoading={setLoading}
+          loading={loading}
+        />
+        <UserCard user={user} error={error} loading={loading} />
+      </ScrollView>
     </Layout>
   );
 };

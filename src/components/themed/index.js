@@ -1,3 +1,4 @@
 export { Text, TextBold } from "./Text";
-export { View, ViewContrast, SafeAreaView } from "./View";
+export { ViewPlain, View, ViewContrast, SafeAreaView } from "./View";
 export { StatusBar } from "./StatusBar";
+export { Icon } from "./Icon";

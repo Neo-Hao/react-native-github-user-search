@@ -5,8 +5,6 @@ import { useFonts } from 'expo-font';
 import BottomTabs from 'navigation/BottomTabs';
 import { useThemeColors } from 'hooks/useThemeColors';
 import { useCustomTheme } from 'hooks/useCustomTheme';
-import GitHubProfile from 'screens/GitHubProfile';
-
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();

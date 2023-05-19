@@ -1,10 +1,12 @@
 import { StyleSheet } from 'react-native';
 import { View, TextBold } from 'components/themed';
 
-const Header = ({ style, ...rest }) => {
+const Header = ({style, ...rest}) => {
   return (
-    <View style={[styles.header, style]} {...rest}>
-      <TextBold style={styles.title}>devfinder: Setting</TextBold>
+    <View style={[styles.header, style]} {...rest} testID='test-header'>
+      <TextBold style={styles.title} testID='test-header-text'>
+        devfinder: Profiles
+      </TextBold>
     </View>
   );
 };
@@ -14,6 +16,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 10,
     paddingBottom: 50,
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   title: {
     fontSize: 28,

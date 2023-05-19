@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
 import GitHubProfile from 'screens/GitHubProfile';
+import GitHubProfiles from 'screens/GitHubProfiles';
 import Settings from 'screens/Settings';
 
 import { useThemeColors } from 'hooks/useThemeColors';
@@ -24,12 +25,23 @@ const BottomTabs = () => {
       }}
     >
       <Tab.Screen
-        name='GitHubProfile'
+        name='Profile'
         component={GitHubProfile}
         options={{
-          title: 'GitHubProfile',
+          title: 'Profile',
           tabBarIcon: (props) => (
             <TabBarIcon name='ribbon-outline' {...props} />
+          ),
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name='Profiles'
+        component={GitHubProfiles}
+        options={{
+          title: 'Profiles',
+          tabBarIcon: (props) => (
+            <TabBarIcon name='apps-outline' {...props} />
           ),
           headerShown: false,
         }}

@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { StyleSheet, Pressable } from 'react-native';
+import { ScrollView, StyleSheet, Pressable } from 'react-native';
 import { View, Text } from 'components/themed';
 import { useThemeColors } from 'hooks/useThemeColors';
 import { Themes } from 'context/Theme';
@@ -37,15 +37,17 @@ const Settings = () => {
 
   return (
     <Layout>
-      <Header />
-      {Themes.map((key, index) => (
-        <Fragment key={key}>
-          <ThemeRow onPress={() => setTheme(key)} checked={theme === key}>
-            {key}
-          </ThemeRow>
-          {index !== Themes.length - 1 && <Border />}
-        </Fragment>
-      ))}
+      <Header style={{ padding: 20 }} />
+      <ScrollView style={{ padding: 20 }} keyboardShouldPersistTaps='handled'>
+        {Themes.map((key, index) => (
+          <Fragment key={key}>
+            <ThemeRow onPress={() => setTheme(key)} checked={theme === key}>
+              {key}
+            </ThemeRow>
+            {index !== Themes.length - 1 && <Border />}
+          </Fragment>
+        ))}
+      </ScrollView>
     </Layout>
   );
 };
