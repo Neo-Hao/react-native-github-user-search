@@ -5,6 +5,8 @@ const useUsers = () => {
   const context = useContext(UsersContext);
 
   return {
+    curUsername: context.curUsername, 
+    setCurUsername: context.setCurUsername,
     users: context.users,
     setUsers: context.setUsers,
   };

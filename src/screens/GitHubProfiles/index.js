@@ -3,12 +3,12 @@ import Header from './Header';
 import UserList from './UserList';
 import Layout from 'layouts/Main';
 
-const GitHubProfiles = () => {
+const GitHubProfiles = ({ navigation }) => {
   return (
     <Layout>
       <Header style={{ padding: 20 }} />
       <ScrollView style={{ padding: 20 }} keyboardShouldPersistTaps='handled'>
-        <UserList />
+        <UserList navigation={navigation} />
       </ScrollView>
     </Layout>
   );

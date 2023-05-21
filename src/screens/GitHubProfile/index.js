@@ -8,7 +8,9 @@ import Layout from 'layouts/Main';
 import { useUsers } from 'hooks/useUsers';
 
 const GitHubProfile = () => {
-  const { setUsers } = useUsers();
+  const { curUsername, setUsers } = useUsers();
+
+  console.log(curUsername);
 
   // one state that stores the user data
   const [user, setUser] = useState(null);
@@ -24,7 +26,7 @@ const GitHubProfile = () => {
     const loadUser = async () => {
       try {
         const response = await axios.get(
-          'https://api.github.com/users/octocat'
+          `https://api.github.com/users/${curUsername}`
         );
         setUser(response.data);
       } catch (error) {
@@ -33,7 +35,7 @@ const GitHubProfile = () => {
       }
     };
     loadUser();
-  }, []);
+  }, [curUsername]);
 
   // add a new user
   const addUser = (user) => {

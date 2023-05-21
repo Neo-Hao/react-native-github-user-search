@@ -1,10 +1,8 @@
-import { ViewPlain, ViewContrast, Text } from 'components/themed';
-import { Image, StyleSheet } from 'react-native';
 import SwipeToDelete from './SwipeToDelete';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useUsers } from 'hooks/useUsers';
 
-const UserList = () => {
+const UserList = ({ navigation }) => {
   // one state that stores all users
   const { users, setUsers } = useUsers();
 
@@ -20,7 +18,12 @@ const UserList = () => {
   return (
     <GestureHandlerRootView style={{ flex: 1, marginBottom: 30 }}>
       {users.map((user, i) => (
-        <SwipeToDelete user={user} onDelete={() => deleteUser(i)} key={i} />
+        <SwipeToDelete
+          navigation={navigation}
+          user={user}
+          onDelete={() => deleteUser(i)}
+          key={i}
+        />
       ))}
     </GestureHandlerRootView>
   );

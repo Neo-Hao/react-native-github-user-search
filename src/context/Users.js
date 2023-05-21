@@ -2,11 +2,14 @@ import { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const UsersContext = createContext({
+  curUsername: 'octocat',
+  setCurUsername: () => {},
   users: [],
   setUsers: () => {},
 });
 
 const UsersProvider = ({ children }) => {
+  const [curUsername, setCurUsername] = useState('octocat');
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -31,7 +34,7 @@ const UsersProvider = ({ children }) => {
   console.log(users);
 
   return (
-    <UsersContext.Provider value={{ users, setUsers }}>
+    <UsersContext.Provider value={{ curUsername, setCurUsername, users, setUsers }}>
       {children}
     </UsersContext.Provider>
   );
