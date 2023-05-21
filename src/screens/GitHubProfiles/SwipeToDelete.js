@@ -1,4 +1,3 @@
-import React from 'react';
 import { Image, Animated, StyleSheet } from 'react-native';
 import { ViewPlain, ViewContrast, Text, Icon } from 'components/themed';
 import { RectButton, Swipeable } from 'react-native-gesture-handler';

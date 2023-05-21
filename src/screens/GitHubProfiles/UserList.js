@@ -22,7 +22,7 @@ const UserList = ({ navigation }) => {
           navigation={navigation}
           user={user}
           onDelete={() => deleteUser(i)}
-          key={i}
+          key={i + user.login}
         />
       ))}
     </GestureHandlerRootView>
